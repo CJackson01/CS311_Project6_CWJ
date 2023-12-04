@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Balance Sheet</title>
+</head>
+<body>
+    <header class="flex-container">
+        <h1>Bellarmine Financial - Balance Sheet Calculator</h1>
+    </header>
+    <main class="grid-container">
+        <section id="assets">
+            <button class="button" onclick="toggleAssetSection('currentAssets')">Current Assets</button>
+            <button class="button" onclick="toggleAssetSection('investmentProperty')">Investment Property or Equipment</button>
+            <button class="button" onclick="toggleAssetSection('intangibleAssets')">Intangible Assets</button>
+            <button class="button" onclick="toggleAssetSection('currentLiabilities')">Current Liabilities</button>
+            <button class="button" onclick="toggleAssetSection('longTermLiabilities')">Long Term Liabilities</button>
+
+            <div id="currentAssetsSection" class="asset-section">
+                <h2>Current Assets</h2>
+                <div class="textbox-container" style="display: none;">
+                    <label for="currentCash">Cash:</label>
+                    <input type="text" id="currentCash" />
+                </div>
+                <div class="textbox-container" style="display: none;">
+                    <label for="currentInventory">Inventory:</label>
+                    <input type="text" id="currentInventory" />
+                </div>
+                <div class="textbox-container" style="display: none;">
+                    <label for="currentSupplies">Supplies:</label>
+                    <input type="text" id="currentSupplies" />
+                </div>
+                <div class="textbox-container" style="display: none;">
+                    <label for="currentTemporaryInvestments">Temporary Investments:</label>
+                    <input type="text" id="currentTemporaryInvestments" />
+                </div>
+                <div class="textbox-container" style="display: none;">
+                    <label for="totalCurrentAssets">Total:</label>
+                    <input type="text" id="totalCurrentAssets" readonly />
+                </div>
+            </div>
+        </section>
+
+<section id="investmentPropertySection" class="asset-section">
+    <h2>Investment Property or Equipment</h2>
+    <div class="textbox-container" style="display: none;">
+        <label for="land">Land:</label>
+        <input type="text" id="land" />
+    </div>
+    <div class="textbox-container" style="display: none;">
+        <label for="buildingAndImprovements">Building and Improvements:</label>
+        <input type="text" id="buildingAndImprovements" />
+    </div>
+    <div class="textbox-container" style="display: none;">
+        <label for="equipment">Equipment:</label>
+        <input type="text" id="equipment" />
+    </div>
+    <div class="textbox-container" style="display: none;">
+        <label for="temporaryInvestments2">Temporary Investments:</label>
+        <input type="text" id="temporaryInvestments2" />
+    </div>
+    <div class="textbox-container" style="display: none;">
+        <label for="totalInvestmentProperty">Total:</label>
+        <input type="text" id="totalInvestmentProperty" readonly />
+    </div>
+</section>
+
+<section id="intangibleAssets">
+
+    <div id="intangibleAssetsSection" class="asset-section">
+        <h2>Intangible Assets</h2>
+        <div class="textbox-container" style="display: none;">
+            <label for="tradeNames">Trade Names:</label>
+            <input type="text" id="tradeNames" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="goodwill">Goodwill:</label>
+            <input type="text" id="goodwill" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="totalIntangibleAssets">Total:</label>
+            <input type="text" id="totalIntangibleAssets" readonly />
+        </div>
+    </div>
+</section>
+
+<section id="currentLiabilities">
+
+    <div id="currentLiabilitiesSection" class="asset-section">
+        <h2>Current Liabilities</h2>
+        <div class="textbox-container" style="display: none;">
+            <label for="accountPayable">Account Payable:</label>
+            <input type="text" id="accountPayable" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="notesPayable">Notes Payable:</label>
+            <input type="text" id="notesPayable" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="interestPayable">Interest Payable:</label>
+            <input type="text" id="interestPayable" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="wagesPayable">Wages Payable:</label>
+            <input type="text" id="wagesPayable" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="accruedExpenses">Accrued Expenses:</label>
+            <input type="text" id="accruedExpenses" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="totalCurrentLiabilities">Total:</label>
+            <input type="text" id="totalCurrentLiabilities" readonly />
+        </div>
+    </div>
+</section>
+
+<section id="longTermLiabilities">
+
+    <div id="longTermLiabilitiesSection" class="asset-section">
+        <h2>Long Term Liabilities</h2>
+        <div class="textbox-container" style="display: none;">
+            <label for="notesPayableLongTerm">Notes Payable:</label>
+            <input type="text" id="notesPayableLongTerm" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="bondsPayable">Bonds Payable:</label>
+            <input type="text" id="bondsPayable" />
+        </div>
+        <div class="textbox-container" style="display: none;">
+            <label for="totalLongTermLiabilities">Total:</label>
+            <input type="text" id="totalLongTermLiabilities" readonly />
+        </div>
+    </div>
+</section>
+
+        <section id="totals">
+            <label>Total Assets:</label>
+            <input type="text" id="totalAssets" readonly />
+
+            <label>Total Liabilities:</label>
+            <input type="text" id="totalLiabilities" readonly />
+
+            <label>Total Position:</label>
+            <input type="text" id="totalPosition" readonly />
+        </section>
+        
+        <button class="button" onclick="calculateTotal()">Calculate Position</button>
+    <footer class="flex-container">
+        <p>Bellarmine University 2023</p>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
